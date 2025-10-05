@@ -1,0 +1,99 @@
+## Vilona Customer Support Chatbot 🤖
+
+An intelligent customer support chatbot built for Vilona. This project leverages a hybrid approach, combining a local FAQ knowledge base with the power of Google's Gemini Pro to provide accurate and comprehensive answers to user queries.
+
+## ✨ Features
+
+The chatbot operates in three distinct modes, selectable from the sidebar:
+
+1.  *FAQ Only Mode*: 
+    * Provides answers exclusively from the pre-defined vilona_faqs.csv file.
+    * Utilizes a combination of TF-IDF and Sentence Transformers for robust semantic search to find the most relevant answer from the knowledge base.
+
+2.  *Gemini Only Mode*: 
+    * A fully conversational mode powered by Google's Gemini Pro model.
+    * Ideal for handling general inquiries and questions not covered in the FAQ.
+
+3.  *Hybrid Mode*: 
+    * The most advanced mode, which intelligently combines the other two.
+    * It first attempts to find a high-confidence answer from the FAQ database.
+    * If no suitable answer is found, it seamlessly switches to the Gemini model to ensure the user always gets a response.
+
+## 🛠 Tech Stack
+
+* *Language*: Python
+* *Web Framework*: Streamlit
+* *Core Engine*:
+    * *Data Handling*: Pandas
+    * *FAQ Search*:
+        * Scikit-learn (TfidfVectorizer)
+        * Sentence-Transformers (all-MiniLM-L6-v2)
+    * *Generative AI*: Google Generative AI (Gemini)
+    * *Environment Variables*: python-dotenv
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* Python 3.8+
+* Git
+
+### Installation
+
+1.  *Clone the repository:*
+    bash
+    git clone [https://your-repository-url.git](https://your-repository-url.git)
+    cd vilona-chatbot
+    
+
+2.  *Create and activate a virtual environment:*
+    bash
+    # Create the environment
+    python -m venv venv
+    
+    # On Windows
+    venv\Scripts\activate
+    
+    # On Linux/Mac
+    source venv/bin/activate
+    
+
+3.  *Install the required dependencies:*
+    (First, ensure you have a requirements.txt file. You can create one using: pip freeze > requirements.txt)
+    bash
+    pip install -r requirements.txt
+    
+
+4.  *Set up Environment Variables:*
+    * Create a file named .env in the root directory of the project.
+    * Add your Google API key to this file:
+    
+    GOOGLE_API_KEY="YOUR_API_KEY_HERE"
+    
+
+### Running the Application
+
+1.  Make sure your FAQ data is present at data/vilona_faqs.csv.
+2.  Run the following command in your terminal:
+    bash
+    streamlit run app.py
+    
+3.  Open the local URL provided by Streamlit (e.g., http://localhost:8501) in your web browser.
+
+## 📂 Project Structure
+
+
+vilona-chatbot/
+├── data/
+│   └── vilona_faqs.csv
+├── .env
+├── app.py
+├── chatbot_engine.py
+├── requirements.txt
+└── README.md
+
+## 💡 Future Improvements
+
+* Integration with a database for scalability.
+* Implementation of a user feedback mechanism (👍/👎).
+* Saving and retrieving chat history for users.
